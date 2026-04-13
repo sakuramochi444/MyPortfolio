@@ -4,8 +4,8 @@ compatibility_flags = ["nodejs_compat"]
 
 [vars]
 # IMPORTANT: Set these in the Cloudflare Dashboard (Settings > Variables)
-# SESSION_SECRET = "YourSecretKey"
-# ADMIN_PASSWORD = "YourAdminPassword"
+# SESSION_SECRET = "a_very_long_random_string_for_session_security"
+# ADMIN_PASSWORD = "admin"
 # GITHUB_TOKEN = "YourGitHubToken"
 # GITHUB_REPO = "user/repo"
 
