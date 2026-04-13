@@ -4,13 +4,7 @@ import Slider from "@/components/Slider";
 import { notFound } from "next/navigation";
 
 export const runtime = "edge";
-
-export async function generateStaticParams() {
-  const works = await getWorksData();
-  return works.map((work) => ({
-    id: work.id,
-  }));
-}
+export const dynamic = "force-dynamic";
 
 export default async function WorkDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
