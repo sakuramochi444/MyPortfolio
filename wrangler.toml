@@ -1,0 +1,20 @@
+name = "portfolio"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# IMPORTANT: Set these in the Cloudflare Dashboard (Settings > Variables)
+# SESSION_SECRET = "YourSecretKey"
+# ADMIN_PASSWORD = "YourAdminPassword"
+# GITHUB_TOKEN = "YourGitHubToken"
+# GITHUB_REPO = "user/repo"
+
+[[kv_namespaces]]
+binding = "PORTFOLIO_DATA"
+id = "e3b85f9017a548219da2a47404121ce2"
+
+[env.preview]
+name = "portfolio-preview"
+[[kv_namespaces]]
+binding = "PORTFOLIO_DATA"
+id = "e3b85f9017a548219da2a47404121ce2"

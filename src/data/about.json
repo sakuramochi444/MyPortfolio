@@ -1,0 +1,131 @@
+{
+  "name": "三宅 泰知",
+  "profileIcon": "/images/icon.png",
+  "introduction": "こんにちは！\n高専にいるタイプの高専生です。\nよろしくお願いします！\n生年月日：2007年04月04日\n所属：大阪公立大学工業高等専門学校 総合工学システム学科 知能情報コース 4年生\n趣味：プログラミング、ゲーム、アニメ\n最近では、アルゴ式でのC#の勉強やLPICレベル1を勉強することでLinuxの操作に挑戦しています。\n今の目標は、応用情報技術者試験に合格することです。",
+  "timeline": [
+    {
+      "date": "2023.04",
+      "title": "大阪公立大学工業高等専門学校 総合工学システム学科 入学",
+      "jobTitle": "在学中（4年生）",
+      "description": "現在、知能情報コース。\n最近では、独学でのC#プログラミングやLinuxの操作に挑戦しています。"
+    },
+    {
+      "date": "2025.01",
+      "title": "大阪でハッカソンの本発表",
+      "jobTitle": "JavaScriptを用いた学生支援ツールの開発",
+      "description": "チーム内でJavaScriptを用いた学生支援ツールの開発に携わりました。\n学生間のコミュニケーションツールを担当しました。"
+    },
+    {
+      "date": "2025.11",
+      "title": "2025年度高専祭",
+      "jobTitle": "身体連動型ダンジョンRPG開発",
+      "description": "Unity、Pythonでの画像処理、マイコンを使った身体連動型ゲームの開発に携わりました。\nUnityでのゲームシステムを担当しました。"
+    },
+    {
+      "date": "2026.3",
+      "title": "Affinity Nexaにてインターン開始",
+      "jobTitle": "インターン生（エンジニア）",
+      "description": "インターン生として開発プロジェクトに参画。\n学校での個人・チーム開発とは異なる、商用サービスの開発プロセスや運用について、現場での実践を通じて深く学んでいます。"
+    }
+  ],
+  "qualifications": [
+    "基本情報技術者試験 合格（2025年10月）"
+  ],
+  "skills": [
+    {
+      "name": "Unity",
+      "iconClass": "fa-brands fa-unity",
+      "color": "#000000",
+      "deviconName": ""
+    },
+    {
+      "name": "Next.js",
+      "siName": "si si-nextdotjs",
+      "color": "#000000",
+      "deviconName": "devicon-nextjs-plain"
+    },
+    {
+      "name": "C#",
+      "deviconName": "devicon-csharp-plain colored",
+      "iconClass": "fa-solid fa-code",
+      "color": "#239120"
+    },
+    {
+      "name": "C++",
+      "deviconName": "devicon-cplusplus-plain colored",
+      "iconClass": "fa-solid fa-code",
+      "color": "#00599C"
+    },
+    {
+      "name": "Python",
+      "deviconName": "devicon-python-plain colored",
+      "iconClass": "fa-brands fa-python",
+      "color": "#3776ab"
+    },
+    {
+      "name": "HTML5",
+      "deviconName": "devicon-html5-plain colored",
+      "iconClass": "fa-brands fa-html5",
+      "color": "#e34f26"
+    },
+    {
+      "name": "CSS3",
+      "deviconName": "devicon-css3-plain colored",
+      "iconClass": "fa-brands fa-css3-alt",
+      "color": "#1572b6"
+    },
+    {
+      "name": "JavaScript",
+      "deviconName": "devicon-javascript-plain colored",
+      "iconClass": "fa-brands fa-js",
+      "color": "#f7df1e"
+    },
+    {
+      "name": "Docker",
+      "deviconName": "devicon-docker-plain colored",
+      "iconClass": "fa-brands fa-docker",
+      "color": "#2496ed"
+    },
+    {
+      "name": "Arduino",
+      "iconClass": "fas fa-microchip",
+      "color": "#00979d",
+      "siName": "si si-arduino"
+    },
+    {
+      "name": "Linux",
+      "deviconName": "devicon-linux-plain",
+      "iconClass": "fa-brands fa-linux",
+      "color": "#000000"
+    },
+    {
+      "name": "React",
+      "deviconName": "devicon-react-original colored",
+      "iconClass": "fa-brands fa-react",
+      "color": "#61dafb"
+    },
+    {
+      "name": "Prisma",
+      "deviconName": "",
+      "siName": "si si-prisma",
+      "color": "#2d3748"
+    },
+    {
+      "name": "TailwindCSS",
+      "iconClass": "fa-brands fa-css3-alt",
+      "siName": "si si-tailwindcss",
+      "color": "#06b6d4",
+      "deviconName": "devicon-tailwindcss-plain"
+    }
+  ],
+  "contact": {
+    "email": "tomo.sakuramochi444@gmail.com",
+    "schoolEmail": "rg23137x@st.omu.ac.jp",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/sakuramochi444"
+      }
+    ]
+  }
+}

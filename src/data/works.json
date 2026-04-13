@@ -1,0 +1,139 @@
+[
+  {
+    "id": "work-project1",
+    "title": "学生支援ツール",
+    "description": "高専祭、HackUで発表した学生支援ツールの「教えあい広場」を担当しました。",
+    "thumbnail": "/images/project1.png",
+    "skills": [
+      {
+        "name": "HTML5",
+        "deviconName": "devicon-html5-plain colored"
+      },
+      {
+        "name": "CSS3",
+        "deviconName": "devicon-css3-plain colored"
+      },
+      {
+        "name": "JavaScript",
+        "deviconName": "devicon-javascript-plain colored"
+      },
+      {
+        "name": "Node.js",
+        "deviconName": "devicon-nodejs-plain colored"
+      }
+    ],
+    "overview": "2024年度高専祭での中間発表、そして、HackUで最終発表しました。\nチーム「CCC」の一員としてこの学生支援ツールを開発しました。",
+    "role": "主に全体的なデザイン、ヘッダー、そして「教えあい広場」の部分を担当しました。",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/misorange/Organisator.git"
+      }
+    ],
+    "images": [
+      "/images/project1.png"
+    ]
+  },
+  {
+    "id": "work-project2",
+    "title": "白黒パズル",
+    "description": "自作のパズルゲームです。",
+    "thumbnail": "/images/project2-1.png",
+    "skills": [
+      {
+        "name": "Python",
+        "deviconName": "devicon-python-plain colored"
+      },
+      {
+        "name": "Unity",
+        "iconClass": "fa-brands fa-unity",
+        "color": "#000000"
+      },
+      {
+        "name": "C#",
+        "deviconName": "devicon-csharp-plain colored"
+      }
+    ],
+    "overview": "パズルゲームが好きなので、自作の「白黒」テーマのパズルゲームを作成しました。\n現在開発中でデモ版しかありませんが、基本的なゲームプレイは実装されています。\nぜひ、プレイしていただき、フィードバックをいただけると嬉しいです！",
+    "role": "開発全般",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/sakuramochi444/BlackWhitePazzle"
+      }
+    ],
+    "images": [
+      "/images/project2-1.png",
+      "/images/project2-2.png",
+      "/images/project2-3.png",
+      "/images/project2-4.png"
+    ]
+  },
+  {
+    "id": "work-project3",
+    "title": "身体連動型ダンジョンRPG",
+    "description": "加速度センサとカメラでの画像処理による物理的なインタラクションを実現したダンジョンRPGゲームです。",
+    "thumbnail": "/images/project3.png",
+    "skills": [
+      {
+        "name": "Unity",
+        "iconClass": "fa-brands fa-unity",
+        "color": "#000000"
+      },
+      {
+        "name": "C#",
+        "deviconName": "devicon-csharp-plain colored"
+      }
+    ],
+    "overview": "2025年度高専祭で展示した、加速度センサとカメラでの画像処理による物理的なインタラクションを実現したダンジョンRPGゲームです。\nプレイヤーは実際に体を動かして向き変更や歩行、攻撃を制御し、ゲーム内での冒険を楽しむことができます。",
+    "role": "Unityを使用してゲームシステムを構築し、C#でプログラミングを担当。",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/misorange/Organisator.git"
+      }
+    ],
+    "images": [
+      "/images/project3.png"
+    ]
+  },
+  {
+    "id": "work-project4",
+    "title": "備品在庫管理ツール",
+    "description": "部活動などのチームで在庫を簡易的に管理したい団体向けのアプリです。",
+    "thumbnail": "/images/project4-1.png",
+    "skills": [
+      {
+        "name": "Next.js",
+        "deviconName": "devicon-nextjs-plain colored"
+      },
+      {
+        "name": "React",
+        "deviconName": "devicon-react-original colored"
+      },
+      {
+        "name": "Prisma",
+        "deviconName": "devicon-prisma-plain colored"
+      },
+      {
+        "name": "TailwindCSS",
+        "iconClass": "fa-brands fa-css3-alt"
+      }
+    ],
+    "overview": "備品の在庫管理を行うためのWebアプリケーションです。\n部活動などのチームで在庫を簡易的に管理したい団体向けのアプリです。",
+    "role": "開発全般",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/sakuramochi444/next-app.git"
+      }
+    ],
+    "images": [
+      "/images/project4-1.png",
+      "/images/project4-2.png",
+      "/images/project4-3.png",
+      "/images/project4-4.png",
+      "/images/project4-5.png"
+    ]
+  }
+]
