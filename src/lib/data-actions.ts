@@ -1,13 +1,9 @@
 "use server";
 
-import fs from "fs/promises";
-import path from "path";
 import { getSession } from "./auth";
 import { revalidatePath } from "next/cache";
 
 import { getAboutData, getWorksData } from "./data-fetching";
-
-const DATA_DIR = path.join(process.cwd(), "src/data");
 
 async function checkAuth() {
   const session = await getSession();
@@ -78,14 +74,8 @@ export async function updateAboutData(data: any) {
   // Try KV first
   const kvSuccess = await writeToKV("about", data);
   
-  // Try local fs if not on KV (local development)
   if (!kvSuccess) {
-    try {
-      const filePath = path.join(DATA_DIR, "about.json");
-      await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
-    } catch (e) {
-      console.warn("Failed to write to local fs (likely on Edge):", e);
-    }
+    console.warn("KV is not available. Data not saved.");
   }
   
   revalidatePath("/");
@@ -99,12 +89,7 @@ export async function updateWorksData(data: any) {
   const kvSuccess = await writeToKV("works", data);
   
   if (!kvSuccess) {
-    try {
-      const filePath = path.join(DATA_DIR, "works.json");
-      await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
-    } catch (e) {
-      console.warn("Failed to write to local fs (likely on Edge):", e);
-    }
+    console.warn("KV is not available. Data not saved.");
   }
   
   revalidatePath("/work");
