@@ -20,7 +20,7 @@
     --bg-color: #f8f9fd;
     --card-bg: #ffffff;
     --border-color: #eef0f7;
-    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --accent-gradient: linear-gradient(135deg, #131b3e 0%, #764ba2 100%);
     --header-bg: rgba(255, 255, 255, 0.95);
 }
 
@@ -33,15 +33,32 @@
     --primary-color: #90cdf4; 
 }
 
-/* ダーク/ライトモード時のアイコン色を強制変更 */
-.skill-item i,
-.mini-skill-icons i {
-    color: #000000 !important;
+/* --- スキルアイコンのみをモノトーンにする --- */
+.skill-item i, 
+.skill-item img, 
+.skill-item svg,
+.mini-skill-icons i,
+.mini-skill-icons span i {
+    filter: grayscale(1) !important;
+    color: #333 !important; /* 通常時は濃いグレー/黒 */
+    transition: all 0.3s ease;
 }
 
-[data-theme='dark'] .skill-item i,
-[data-theme='dark'] .mini-skill-icons i {
-    color: #ffffff !important;
+[data-theme='dark'] .skill-item i, 
+[data-theme='dark'] .skill-item img, 
+[data-theme='dark'] .skill-item svg,
+[data-theme='dark'] .mini-skill-icons i,
+[data-theme='dark'] .mini-skill-icons span i {
+    color: #ccc !important; /* ダークモード時は明るいグレー */
+}
+
+/* ホバー時に本来のカラーを復元 */
+.skill-item:hover i, 
+.skill-item:hover img, 
+.skill-item:hover svg,
+.work-item-block:hover .mini-skill-icons i {
+    filter: grayscale(0) !important;
+    color: inherit !important;
 }
 
 /* --- 全体スタイル --- */
@@ -54,13 +71,12 @@ body {
     line-height: 1.6;
 }
 
-/* 管理画面用のリセット (Tailwind優先エリア) */
+/* 管理画面用のリセット */
 body.admin-body {
     background-color: #f8fafc !important;
     font-family: ui-sans-serif, system-ui, sans-serif !important;
 }
 
-/* タグのリセット (Tailwind Preflight対策) */
 h1 { font-size: 2em; font-weight: bold; margin: 0.67em 0; }
 h2 { font-size: 1.5em; font-weight: bold; margin: 0.83em 0; }
 h3 { font-size: 1.17em; font-weight: bold; margin: 1em 0; }
@@ -72,13 +88,6 @@ main {
     padding: 3rem 2rem;
     max-width: 900px;
     margin: 0 auto;
-}
-
-/* 管理画面では main の最大幅を解除 */
-.admin-main {
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }
 
 /* --- ポートフォリオコンポーネント --- */
@@ -107,16 +116,9 @@ main {
 
 /* --- スキルグリッド --- */
 .skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
-.skill-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.8rem; background: var(--skill-card-bg); border-radius: 12px; border: 1px solid var(--border-color); height: auto; }
-.skill-item i, .skill-item .si, .skill-item img { display: none !important; }
+.skill-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.8rem; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); height: auto; }
+.skill-item i { display: flex !important; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; font-size: 2.5rem !important; }
 .skill-item span { font-weight: bold; font-size: 0.85rem; text-align: center; }
-
-@media (min-width: 1024px) {
-    .skill-grid { gap: 1.5rem; }
-    .skill-item { height: 130px; padding: 1.2rem; }
-    .skill-item i, .skill-item .si, .skill-item img { display: flex !important; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; font-size: 2.5rem !important; }
-    .skill-item span { margin-top: auto; }
-}
 
 /* --- 制作実績 --- */
 .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
@@ -125,7 +127,6 @@ main {
 .work-item-block h3 { padding: 1rem 1.5rem 0.5rem; margin: 0; }
 .work-item-block p { padding: 0 1.5rem 1.5rem; font-size: 0.9rem; opacity: 0.8; }
 .mini-skill-icons { padding: 0 1.5rem 1.2rem; display: flex; gap: 0.8rem; font-size: 1.2rem; }
-@media (max-width: 1023px) { .mini-skill-icons { display: none; } }
 
 /* --- ヘッダー --- */
 header {
@@ -140,15 +141,13 @@ nav ul li a::after { content: ''; position: absolute; width: 0; height: 2px; bot
 nav ul li a:hover::after { width: 100%; }
 .dark-mode-toggle { font-family: 'Mushin', sans-serif; background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-color); padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; margin-left: 1.5rem; }
 
-/* --- アニメーション制御 (JS連動) --- */
+/* --- アニメーション制御 --- */
 .reveal {
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out, visibility 0.8s;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 .reveal.active {
     opacity: 1;
-    visibility: visible;
     transform: none !important;
 }
 .reveal-up { transform: translateY(30px); }
@@ -156,9 +155,7 @@ nav ul li a:hover::after { width: 100%; }
 .reveal-right { transform: translateX(30px); }
 
 /* --- 背景装飾 --- */
-.bg-decorations { display: none; }
 @media (min-width: 1024px) {
-    .bg-decorations { display: block; }
     .circle { position: fixed; border-radius: 50%; background: var(--accent-gradient); opacity: 0.06; filter: blur(100px); animation: float 20s infinite ease-in-out; pointer-events: none; z-index: -1; }
     .circle-1 { width: 600px; height: 600px; top: -10%; left: -15%; }
     .circle-2 { width: 400px; height: 400px; top: 40%; left: -10%; animation-delay: -2s; }
