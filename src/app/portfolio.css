@@ -71,10 +71,13 @@ body {
     line-height: 1.6;
 }
 
-/* 管理画面用のリセット */
-body.admin-body {
+/* 管理画面用のリセット（.admin-body クラスを持つ要素内すべてに適用） */
+.admin-body {
     background-color: #f8fafc !important;
-    font-family: ui-sans-serif, system-ui, sans-serif !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+.admin-body * {
+    font-family: inherit;
 }
 
 h1 { font-size: 2em; font-weight: bold; margin: 0.67em 0; }
@@ -84,10 +87,17 @@ p { margin: 1em 0; }
 a { color: var(--primary-color); text-decoration: none; }
 [data-theme='dark'] a { color: #90cdf4; }
 
-main {
+/* 管理画面以外の場合のみ main に制限をかける */
+body:not(.has-admin-page) main:not(.ml-72) {
     padding: 3rem 2rem;
     max-width: 900px;
     margin: 0 auto;
+}
+
+/* 管理画面表示中は layout.tsx の共通ヘッダーと装飾を隠す */
+.has-admin-page header,
+.has-admin-page .bg-decorations {
+    display: none !important;
 }
 
 /* --- ポートフォリオコンポーネント --- */

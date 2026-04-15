@@ -18,6 +18,9 @@ export default function AdminPage() {
   const router = useRouter();
 
   useEffect(() => {
+    // Add class to body to hide common layout elements
+    document.body.classList.add("has-admin-page");
+    
     getSession().then(async (session) => {
       if (!session) {
         router.push("/login");
@@ -27,6 +30,10 @@ export default function AdminPage() {
         setLoading(false);
       }
     });
+
+    return () => {
+      document.body.classList.remove("has-admin-page");
+    };
   }, [router]);
 
   const handleSaveAbout = async (saveData: AboutData) => {
@@ -53,7 +60,7 @@ export default function AdminPage() {
   };
 
   if (loading || !data) return (
-    <div className="flex items-center justify-center min-h-screen bg-slate-50 text-slate-500 font-semibold">
+    <div className="flex items-center justify-center min-h-screen bg-slate-50 text-slate-500 font-semibold admin-body">
       Loading Admin Dashboard...
     </div>
   );
@@ -65,7 +72,7 @@ export default function AdminPage() {
         <div className="p-8 border-b border-slate-100">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 bg-blue-600 text-white flex items-center justify-center rounded-lg font-bold text-xl">P</div>
-            <h2 className="text-xl font-extrabold tracking-tight text-slate-800">Portfolio CMS</h2>
+            <h2 className="text-xl font-extrabold tracking-tight text-slate-800 m-0">Portfolio CMS</h2>
           </div>
         </div>
         
@@ -101,7 +108,7 @@ export default function AdminPage() {
       </aside>
 
       {/* Main Content */}
-      <main className="ml-72 flex-1 relative min-h-screen">
+      <main className="ml-72 flex-1 relative min-h-screen admin-main">
         {message && (
           <div className="fixed top-8 right-8 bg-emerald-500 text-white px-6 py-4 rounded-xl shadow-2xl z-[100] flex items-center gap-3 font-bold animate-in fade-in slide-in-from-right-4 duration-300">
             <span>✅</span> {message}
