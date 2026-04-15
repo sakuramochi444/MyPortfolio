@@ -12,7 +12,7 @@ export const runtime = "edge";
 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<"about" | "works">("about");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<{ text: string, type: "success" | "error" } | null>(null);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<{ about: AboutData; works: WorkItem[] } | null>(null);
   const router = useRouter();
@@ -40,18 +40,22 @@ export default function AdminPage() {
     const res = await updateAboutData(saveData);
     if (res.success) {
       setData(prev => prev ? { ...prev, about: saveData } : null);
-      setMessage("Aboutデータを保存しました");
-      setTimeout(() => setMessage(""), 3000);
+      setMessage({ text: "Aboutデータを保存しました", type: "success" });
+    } else {
+      setMessage({ text: `保存に失敗しました: ${res.error || "Unknown error"}`, type: "error" });
     }
+    setTimeout(() => setMessage(null), 3000);
   };
 
   const handleSaveWorks = async (saveData: WorkItem[]) => {
     const res = await updateWorksData(saveData);
     if (res.success) {
       setData(prev => prev ? { ...prev, works: saveData } : null);
-      setMessage("Worksデータを保存しました");
-      setTimeout(() => setMessage(""), 3000);
+      setMessage({ text: "Worksデータを保存しました", type: "success" });
+    } else {
+      setMessage({ text: `保存に失敗しました: ${res.error || "Unknown error"}`, type: "error" });
     }
+    setTimeout(() => setMessage(null), 3000);
   };
 
   const handleLogout = async () => {
@@ -110,8 +114,8 @@ export default function AdminPage() {
       {/* Main Content */}
       <main className="ml-72 flex-1 relative min-h-screen admin-main">
         {message && (
-          <div className="fixed top-8 right-8 bg-emerald-500 text-white px-6 py-4 rounded-xl shadow-2xl z-[100] flex items-center gap-3 font-bold animate-in fade-in slide-in-from-right-4 duration-300">
-            <span>✅</span> {message}
+          <div className={`fixed top-8 right-8 ${message.type === "success" ? "bg-emerald-500" : "bg-red-500"} text-white px-6 py-4 rounded-xl shadow-2xl z-[100] flex items-center gap-3 font-bold animate-in fade-in slide-in-from-right-4 duration-300`}>
+            <span>{message.type === "success" ? "✅" : "⚠️"}</span> {message.text}
           </div>
         )}
         

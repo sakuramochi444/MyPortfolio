@@ -75,7 +75,8 @@ export async function updateAboutData(data: any) {
   const kvSuccess = await writeToKV("about", data);
   
   if (!kvSuccess) {
-    console.warn("KV is not available. Data not saved.");
+    console.error("KV is not available or write failed.");
+    return { success: false, error: "KV write failed" };
   }
   
   revalidatePath("/");
@@ -89,10 +90,11 @@ export async function updateWorksData(data: any) {
   const kvSuccess = await writeToKV("works", data);
   
   if (!kvSuccess) {
-    console.warn("KV is not available. Data not saved.");
+    console.error("KV is not available or write failed.");
+    return { success: false, error: "KV write failed" };
   }
   
-  revalidatePath("/work");
-  revalidatePath("/work/[id]");
+  revalidatePath("/work", "page");
+  revalidatePath("/work/[id]", "page");
   return { success: true };
 }

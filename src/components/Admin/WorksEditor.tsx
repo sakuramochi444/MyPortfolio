@@ -1,7 +1,7 @@
 "use client";
 
 import { WorkItem, AboutData, SkillItem } from "@/types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AutoResizeTextarea from "./AutoResizeTextarea";
 import { uploadImage } from "@/lib/data-actions";
 
@@ -15,10 +15,17 @@ export default function WorksEditor({ data, aboutData, onSave }: Props) {
   const [works, setWorks] = useState<WorkItem[]>(data);
   const [isUploading, setIsUploading] = useState<string | null>(null); // workId-field-index
 
+  // Synchronize state when data prop changes (e.g., after a save)
+  useEffect(() => {
+    setWorks(data);
+  }, [data]);
+
   const handleWorkChange = (index: number, field: keyof WorkItem, value: any) => {
-    const newWorks = [...works];
-    newWorks[index] = { ...newWorks[index], [field]: value };
-    setWorks(newWorks);
+    setWorks(prev => {
+      const newWorks = [...prev];
+      newWorks[index] = { ...newWorks[index], [field]: value };
+      return newWorks;
+    });
   };
 
   const handleLinkChange = (workIndex: number, linkIndex: number, field: "label" | "url", value: string) => {
@@ -113,7 +120,7 @@ export default function WorksEditor({ data, aboutData, onSave }: Props) {
 
       <div className="space-y-16">
         {works.map((work, index) => (
-          <div key={work.id} className="bg-white p-12 rounded-[40px] border border-slate-100 shadow-sm relative space-y-10 group">
+          <div key={index} className="bg-white p-12 rounded-[40px] border border-slate-100 shadow-sm relative space-y-10 group">
             <div className="flex justify-between items-start">
               <div className="space-y-2">
                 <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-md font-mono text-xs font-bold tracking-widest">{work.id}</span>
