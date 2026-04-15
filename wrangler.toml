@@ -12,3 +12,4 @@ compatibility_flags = ["nodejs_compat"]
 [[kv_namespaces]]
 binding = "PORTFOLIO_DATA"
 id = "e3b85f9017a548219da2a47404121ce2"
+　
